@@ -58,7 +58,7 @@ def parse_command_line_args():
         "multiprocessing": config.getint("DEFAULT", "multiprocessing", fallback=1),
     }
 
-    parser = argparse.ArgumentParser(description="Process command line parameters.")
+    parser = argparse.ArgumentParser(prog="data_generator", description="Process command line parameters.")
 
     parser.add_argument("--path_to_save_files", type=str, default=defaults["path_to_save_files"], help="Where all "
                                                                                                        "files need to "
