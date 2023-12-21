@@ -44,8 +44,10 @@ coverage.xml
 # Environments
 .env
 .venv
-venv/
+venv/**
 ENV/
 env/
 Thumbs.db
 .DS_Store
+
+data/*

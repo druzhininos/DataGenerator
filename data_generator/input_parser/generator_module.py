@@ -19,13 +19,17 @@ class Generator:
         data_type = parts[0].strip()
 
         if data_type == "timestamp":
+            if parts[1]:
+                logging.warning(f"Timestamp does not support any values in schema: Invalid value '{parts[1]}'")
             return int(time.time())
         elif data_type == "str":
             return self.generate_string_value(parts[1].strip())
         elif data_type == "int":
             return self.generate_int_value(parts[1].strip())
         else:
-            raise ValueError(f"Unsupported data type: {data_type}")
+            logging.error(f"Unsupported data type: {data_type}")
+            return None
+
 
     def generate_string_value(self, value):
         if value == "rand":
